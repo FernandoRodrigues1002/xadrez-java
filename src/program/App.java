@@ -1,3 +1,4 @@
+package program;
 
 import chess.ChessException;
 import chess.ChessMatch;
