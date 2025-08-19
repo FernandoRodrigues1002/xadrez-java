@@ -34,9 +34,9 @@ public class UI {
 
     // https://stackoverflow.com/questions/2979383/java-clear-the-console 
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+	}
 
     public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
         printBoard(chessMatch.getPieces());
@@ -84,20 +84,22 @@ public class UI {
     }
 
     private static void printPiece(ChessPiece piece, boolean background) {
-        if (background) {
-            System.out.print(ANSI_BLACK_BACKGROUND);
+		if (background) {
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
+    	if (piece == null) {
+            System.out.print("-" + ANSI_RESET);
         }
-        if (piece == null) {
-            System.out.print("-");
-        } else {
+        else {
             if (piece.getColor() == Color.WHITE) {
                 System.out.print(ANSI_WHITE + piece + ANSI_RESET);
-            } else {
+            }
+            else {
                 System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
             }
         }
         System.out.print(" ");
-    }
+	}
 
     public static ChessPosition readChessPosition(Scanner sc) {
         try {
